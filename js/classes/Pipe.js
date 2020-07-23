@@ -3,7 +3,6 @@ import { Bird } from "./Bird.js";
 import { Ground } from "./Ground.js";
 
 export class Pipe extends GameObject {
-
   #dor = 100
   #speed = -1
   #free = true
