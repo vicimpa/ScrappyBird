@@ -62,6 +62,7 @@ export class Game {
   }
 
   start() {
+    if(this.#run) return
     this.#time = Date.now()
     this.#run = true
     this.update()
