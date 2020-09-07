@@ -8,6 +8,6 @@
 ```
 
 >
-> ![normal](raw/master/img/img1.png)
-> ![normal](raw/master/img/img2.png)
-> ![normal](raw/master/img/img3.png)
+> ![normal](img/img1.png)
+> ![normal](img/img2.png)
+> ![normal](img/img3.png)
