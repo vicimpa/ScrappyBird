@@ -12,11 +12,11 @@ async function loadImage(src = '') {
 }
 
 async function main() {
-  const bgImage = await loadImage('/img/bg.png')
-  const fgImage = await loadImage('/img/fg.png')
-  const birdImage = await loadImage('/img/bird.png')
-  const pipeUpImage = await loadImage('/img/pipeUp.png')
-  const pipeDownImage = await loadImage('/img/pipeBottom.png')
+  const bgImage = await loadImage('../img/bg.png')
+  const fgImage = await loadImage('../img/fg.png')
+  const birdImage = await loadImage('../img/bird.png')
+  const pipeUpImage = await loadImage('../img/pipeUp.png')
+  const pipeDownImage = await loadImage('../img/pipeBottom.png')
 
   const { Game } = await import('./classes/Game.js')
   const { Ground } = await import('./classes/Ground.js')
