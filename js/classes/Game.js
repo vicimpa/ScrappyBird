@@ -1,4 +1,5 @@
-import {GameObject} from "./GameObject.js";
+import { GameObject } from "./GameObject.js";
+import { Pipe } from "./Pipe.js";
 
 export class Game {
   /** @type {HTMLCanvasElement} */ 
@@ -11,6 +12,8 @@ export class Game {
 
   #time = Date.now()
 
+  #score = 0
+
   get run() { return this.#run }
 
   get width() { return this.#cvs.width }
@@ -18,6 +21,8 @@ export class Game {
 
   get ctx() { return this.#ctx }
   get cvs() { return this.#cvs }
+
+  get score() { return this.#score }
 
   get deltaTime() { return Date.now() - this.#time }
 
@@ -59,13 +64,26 @@ export class Game {
 
     if(this.#run)
       requestAnimationFrame(() => this.update())
+
+    this.#ctx.fillStyle = "#ffffff"
+    this.#ctx.textBaseline = 24
+    this.#ctx.font = '24px Arial'
+    this.#ctx.fillText(`Score: ${this.score}`, 10, 24)
   }
 
   start() {
     if(this.#run) return
     this.#time = Date.now()
     this.#run = true
+    Pipe.bird.jump()
+    this.#score = 0
     this.update()
+  }
+
+  addScore() {
+    this.#score++
+    console.log(this.#score)
+    Pipe.sound.score.play()
   }
 
   stop() {

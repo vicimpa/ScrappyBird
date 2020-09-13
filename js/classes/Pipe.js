@@ -6,6 +6,7 @@ export class Pipe extends GameObject {
   #dor = 100
   #speed = -1
   #free = true
+  #score = false
 
   update() {
     const { imgUp, bird } = Pipe
@@ -30,12 +31,18 @@ export class Pipe extends GameObject {
     if(x < -imgUp.width)
       this.delete()
 
+
     if(bX - cX < x + wX && bX + cX > x) {
       if(bY - cY < y + wH) 
         this.game.stop()
 
       if(bY + cY > wH + this.#dor + y)
         this.game.stop()
+    }
+
+    if(x + 50 < bX && !this.#score) {
+      this.#score = true
+      this.game.addScore()
     }
 
     this.pos.x = x
